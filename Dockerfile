@@ -1,4 +1,4 @@
-FROM ruby:2.7.0
+FROM ruby:2.7.1
 
 ENV DEBIAN_FRONTEND=noninteractive \
   NODE_VERSION=10.16.1 \
@@ -37,7 +37,7 @@ RUN sed -i '/deb-src/d' /etc/apt/sources.list && \
 
 # Set locale
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
-    locale-gen
+  locale-gen
 
 # Install node.js
 RUN curl -sSL "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" | tar xfJ - -C /usr/local --strip-components=1 && \
